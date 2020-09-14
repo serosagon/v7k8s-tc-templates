@@ -1,0 +1,22 @@
+# Reference: https://www.jenkins.io/doc/book/installing/#debianubuntu
+
+# To install the Open Java Development Kit (OpenJDK) run the following:
+
+# Update the repositories
+sudo apt update
+
+# search of all available packages:
+sudo apt search openjdk
+
+# Pick one option and install it:
+sudo apt install openjdk-8-jdk
+
+# Confirm installation:
+java -version
+
+#Install Long Term Support Jenkins release
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+    /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
