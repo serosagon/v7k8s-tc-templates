@@ -28,15 +28,15 @@ cat ${TKC_NAME}.yaml
 kubectl apply -f ${TKC_NAME}.yaml
 sleep 180
 
-kubectl get tkc $TKC_NAME
-kubectl get tkc $TKC_NAME -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
+kubectl get tkc $TKC_NAME -n $SC_NAMESPACE
+kubectl get tkc $TKC_NAME -n $SC_NAMESPACE -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
 
 while grep 'pending\|notready' tkcnodestatus.txt > /dev/null;
 do
     sleep 60
     echo "Configuring Kubernetes Cluster Nodes..."
-    kubectl get tkc $TKC_NAME -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
+    kubectl get tkc $TKC_NAME -n $SC_NAMESPACE -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
 done
 
-kubectl describe tkc $TKC_NAME
-kubectl get tkc $TKC_NAME
+kubectl describe tkc $TKC_NAME -n $SC_NAMESPACE
+kubectl get tkc $TKC_NAME -n $SC_NAMESPACE
