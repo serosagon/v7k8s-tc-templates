@@ -5,14 +5,14 @@ metadata:
   namespace: svc
 spec:
   distribution:
-    version: v1.16.8+vmware.1-tkg.3.60d2ffd
+    version: v1.16.8
   topology:
     controlPlane:
       count: 1
       class: best-effort-xsmall
       storageClass: k8s-policy
     workers:
-      count: 2
+      count: 1
       class: best-effort-xsmall
       storageClass: k8s-policy
   settings:
