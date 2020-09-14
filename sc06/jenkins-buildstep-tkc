@@ -3,7 +3,7 @@ export SC_CLUS_VIP='10.40.14.65'
 export SC_USER_NAME='ldev@corp.local'
 export SC_USER_PASS='VMware1!'
 export STORAGE_NAME='k8s-policy'
-export VM_IMAGE_VER='v1.16.8+vmware.1-tkg.1.6b5edc7'
+# export VM_IMAGE_VER='v1.16.8'
 export SC_NAMESPACE='svc'
 export TKC_NAME='tkc-sm-xsmall'
 
@@ -22,18 +22,18 @@ sleep 5
 sed "s/vc-storage-policy/$STORAGE_NAME/g" -i ${TKC_NAME}.yaml
 sed "s/tkc-sm-xsmall/$TKC_NAME/g" -i ${TKC_NAME}.yaml
 sed "s/ns01/$SC_NAMESPACE/g" -i ${TKC_NAME}.yaml
-sed "s/v1.16.8+vmware.1-tkg.3.60d2ffd/$VM_IMAGE_VER/g" -i ${TKC_NAME}.yaml
+# sed "s/v1.16.8+vmware.1-tkg.3.60d2ffd/$VM_IMAGE_VER/g" -i ${TKC_NAME}.yaml
 cat ${TKC_NAME}.yaml
 
 kubectl apply -f ${TKC_NAME}.yaml
-sleep 60
+sleep 180
 
 kubectl get tkc $TKC_NAME
 kubectl get tkc $TKC_NAME -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
 
 while grep 'pending\|notready' tkcnodestatus.txt > /dev/null;
 do
-    sleep 30
+    sleep 60
     echo "Configuring Kubernetes Cluster Nodes..."
     kubectl get tkc $TKC_NAME -o json | jq -r '.status.nodeStatus[]' > tkcnodestatus.txt
 done
