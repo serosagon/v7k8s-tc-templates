@@ -50,3 +50,5 @@ kubectl config use-context 10.40.14.65
 sudo mkdir ~jenkins/.kube/
 sudo cp ~/.kube/config ~jenkins/.kube/
 sudo chown -R jenkins: ~jenkins/.kube/
+
+# Test
