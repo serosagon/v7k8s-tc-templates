@@ -1,0 +1,8 @@
+# set clusterrolebinding w/ privileged as default for all system:authenticated
+kubectl create clusterrolebinding clusterrolebinding-auth-privileged --clusterrole=psp:vmware-system-privileged --group=system:authenticated
+
+# set clusterrolebinding w/ privileged as default for all system:serviceaccounts
+kubectl create clusterrolebinding clusterrolebinding-sa-privileged --clusterrole=psp:vmware-system-privileged --group=system:serviceaccounts
+
+# set rolebinding w/ privileged as default for all system:serviceaccounts - for namespace default
+kubectl create rolebinding rolebinding-default-privileged-sa-ns_default --namespace=default --clusterrole=psp:vmware-system-privileged --group=system:serviceaccounts
