@@ -2,7 +2,7 @@ kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: clusterrolebinding-default-privileged-authenticated
-  namespace: default
+  namespace: fusion
 roleRef:
   kind: ClusterRole
   name: psp:vmware-system-privileged
