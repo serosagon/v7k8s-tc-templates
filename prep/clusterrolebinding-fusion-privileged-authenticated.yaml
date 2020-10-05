@@ -1,7 +1,7 @@
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: clusterrolebinding-default-privileged-authenticated
+  name: clusterrolebinding-fusion-privileged-authenticated
   namespace: fusion
 roleRef:
   kind: ClusterRole
