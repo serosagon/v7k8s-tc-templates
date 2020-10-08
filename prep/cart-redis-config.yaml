@@ -5,3 +5,4 @@ metadata:
 data:
   redis-config: |
     dir /var/lib/redis
+    save 900 1 300 5 30 10
