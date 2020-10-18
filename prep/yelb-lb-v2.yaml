@@ -107,10 +107,10 @@ spec:
         volumeMounts:
         - name: redis-slave-data
           mountPath: /data
-    volumes:
-    - name: redis-slave-data
-      persistentVolumeClaim:
-        claimName: redis-slave-claim
+      volumes:
+      - name: redis-slave-data
+        persistentVolumeClaim:
+          claimName: redis-slave-claim
 ---
 apiVersion: apps/v1
 kind: Deployment
