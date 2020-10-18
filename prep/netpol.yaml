@@ -5,12 +5,14 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: nginx
+      app: yelb-db
+      tier: backenddb
   ingress:
   - from:
       - namespaceSelector:
           matchLabels:
-            app: db
+            app: yelb-appserver
+            tier: middletier
     ports:
-      - port: 80
+      - port: 5432
         protocol: TCP
