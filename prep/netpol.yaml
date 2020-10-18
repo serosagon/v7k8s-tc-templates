@@ -7,9 +7,9 @@ spec:
     matchLabels:
       app: yelb-db
       tier: backenddb
-  ports:
-  - port: 5432
-    protocol: TCP
+      ports:
+      - port: 5432
+        protocol: TCP
   ingress:
   - from:
       - namespaceSelector:
