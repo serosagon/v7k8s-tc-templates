@@ -16,6 +16,6 @@ spec:
           matchLabels:
             app: yelb-appserver
             tier: middletier
-    ports:
-      - port: 5432
-        protocol: TCP
+#    ports:
+#      - port: 5432
+#        protocol: TCP
