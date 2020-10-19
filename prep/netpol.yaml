@@ -14,8 +14,8 @@ spec:
   - from:
       - namespaceSelector:
           matchLabels:
-            app: yelb-appserver
-            tier: middletier
+            app: yelb-ui
+            tier: frontend
 #    ports:
 #      - port: 5432
 #        protocol: TCP
